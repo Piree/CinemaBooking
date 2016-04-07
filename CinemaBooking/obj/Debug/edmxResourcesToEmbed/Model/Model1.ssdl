@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CinemaBookingDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="BookingId" />
+    </Key>
+    <Property Name="BookingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="ScreeningId" Type="int" />
+    <Property Name="NumberOfPeople" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Mail" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="PhoneNbr" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Movie">
+    <Key>
+      <PropertyRef Name="MovieId" />
+    </Key>
+    <Property Name="MovieId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="AgeLimit" Type="varchar" MaxLength="255" />
+    <Property Name="RunTime" Type="int" Nullable="false" />
+    <Property Name="Genre" Type="varchar" MaxLength="255" />
+    <Property Name="Year" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Salon">
+    <Key>
+      <PropertyRef Name="SalonId" />
+    </Key>
+    <Property Name="SalonId" Type="int" Nullable="false" />
+    <Property Name="Seats" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Screening">
+    <Key>
+      <PropertyRef Name="ScreeningId" />
+    </Key>
+    <Property Name="ScreeningId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MovieId" Type="int" />
+    <Property Name="SalonId" Type="int" />
+    <Property Name="StartDateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Booking__Custome__5EBF139D">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Booking__Screeni__5FB337D6">
+    <End Role="Screening" Type="Self.Screening" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Screening">
+        <PropertyRef Name="ScreeningId" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="ScreeningId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Screening__Movie__5AEE82B9">
+    <End Role="Movie" Type="Self.Movie" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Screening" Type="Self.Screening" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movie">
+        <PropertyRef Name="MovieId" />
+      </Principal>
+      <Dependent Role="Screening">
+        <PropertyRef Name="MovieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Screening__Salon__5BE2A6F2">
+    <End Role="Salon" Type="Self.Salon" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Screening" Type="Self.Screening" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Salon">
+        <PropertyRef Name="SalonId" />
+      </Principal>
+      <Dependent Role="Screening">
+        <PropertyRef Name="SalonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CinemaBookingDbModelStoreContainer">
+    <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Movie" EntityType="Self.Movie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Salon" EntityType="Self.Salon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Screening" EntityType="Self.Screening" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Booking__Custome__5EBF139D" Association="Self.FK__Booking__Custome__5EBF139D">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Booking" EntitySet="Booking" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Booking__Screeni__5FB337D6" Association="Self.FK__Booking__Screeni__5FB337D6">
+      <End Role="Screening" EntitySet="Screening" />
+      <End Role="Booking" EntitySet="Booking" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Screening__Movie__5AEE82B9" Association="Self.FK__Screening__Movie__5AEE82B9">
+      <End Role="Movie" EntitySet="Movie" />
+      <End Role="Screening" EntitySet="Screening" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Screening__Salon__5BE2A6F2" Association="Self.FK__Screening__Salon__5BE2A6F2">
+      <End Role="Salon" EntitySet="Salon" />
+      <End Role="Screening" EntitySet="Screening" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

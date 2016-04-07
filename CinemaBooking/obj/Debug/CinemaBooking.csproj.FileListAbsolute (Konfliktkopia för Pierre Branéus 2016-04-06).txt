@@ -1,0 +1,7 @@
+C:\Users\PierreB\Dropbox\Gruppo\CinemaBooking\CinemaBooking\bin\Debug\CinemaBooking.exe.config
+C:\Users\PierreB\Dropbox\Gruppo\CinemaBooking\CinemaBooking\obj\Debug\CinemaBooking.exe
+C:\Users\PierreB\Dropbox\Gruppo\CinemaBooking\CinemaBooking\obj\Debug\CinemaBooking.pdb
+C:\Users\PierreB\Dropbox\Gruppo\CinemaBooking\CinemaBooking\obj\Debug\CinemaBooking.csprojResolveAssemblyReference.cache
+C:\Users\PierreB\Dropbox\Gruppo\CinemaBooking\CinemaBooking\obj\Debug\CinemaBooking.Form1.resources
+C:\Users\PierreB\Dropbox\Gruppo\CinemaBooking\CinemaBooking\obj\Debug\CinemaBooking.Properties.Resources.resources
+C:\Users\PierreB\Dropbox\Gruppo\CinemaBooking\CinemaBooking\obj\Debug\CinemaBooking.csproj.GenerateResource.Cache

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CinemaBookingDbModelStoreContainer" CdmEntityContainer="CinemaBookingDbEntities2">
+    <EntitySetMapping Name="Booking">
+      <EntityTypeMapping TypeName="CinemaBookingDbModel.Booking">
+        <MappingFragment StoreEntitySet="Booking">
+          <ScalarProperty Name="BookingId" ColumnName="BookingId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="ScreeningId" ColumnName="ScreeningId" />
+          <ScalarProperty Name="NumberOfPeople" ColumnName="NumberOfPeople" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer">
+      <EntityTypeMapping TypeName="CinemaBookingDbModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="PhoneNbr" ColumnName="PhoneNbr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Movie">
+      <EntityTypeMapping TypeName="CinemaBookingDbModel.Movie">
+        <MappingFragment StoreEntitySet="Movie">
+          <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="AgeLimit" ColumnName="AgeLimit" />
+          <ScalarProperty Name="RunTime" ColumnName="RunTime" />
+          <ScalarProperty Name="Genre" ColumnName="Genre" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salon">
+      <EntityTypeMapping TypeName="CinemaBookingDbModel.Salon">
+        <MappingFragment StoreEntitySet="Salon">
+          <ScalarProperty Name="SalonId" ColumnName="SalonId" />
+          <ScalarProperty Name="Seats" ColumnName="Seats" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Screening">
+      <EntityTypeMapping TypeName="CinemaBookingDbModel.Screening">
+        <MappingFragment StoreEntitySet="Screening">
+          <ScalarProperty Name="ScreeningId" ColumnName="ScreeningId" />
+          <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+          <ScalarProperty Name="SalonId" ColumnName="SalonId" />
+          <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
